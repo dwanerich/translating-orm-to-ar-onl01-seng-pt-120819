@@ -16,3 +16,10 @@ DB = ActiveRecord::Base.establish_connection(
   if ENV["ACTIVE_RECORD_ENV"] == "test"
     ActiveRecord::Migration.verbose = false
   end
+  
+  sql = <<-SQL
+  CREATE TABLE IF NOT EXISTS dogs (
+  id INTEGER PRIMARY KEY,
+  name TEXT
+  )
+SQL
